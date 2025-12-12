@@ -17,24 +17,13 @@
 
 <body>
     <header>
-        <nav>
-            <a href="/Pages/landing/index.html">
-                <img class="logo" src="/PBL/assets/images/logo.png" alt="logo">
-            </a>
-            <div class="menu">
-                <div class="item">HOME</div>
-                <div class="item">SHOP</div>
-                <div class="item">ABOUT</div>
-                <div class="item">CONTACT</div>
-            </div>
-            <div class="side">
-                <a href="/PBL/Pages/login.html">
-                    <i class="ri-user-3-line"></i>
-                </a>
-                
-                <i class="ri-shopping-bag-3-line"></i>
-            </div>
-        </nav>
+        <div id="navbar"></div>
+        <script>
+            fetch("navbar.html")
+                .then(res => res.text())
+                .then(data => document.getElementById("navbar").innerHTML = data);
+        </script>
+
     </header>
     <main>
         <div class="bi">
@@ -107,34 +96,12 @@
             </div>
         </div>
     </main>
-    <footer>
-        <div class="gh">
-            <p class="gt1">LOOP</p>
-            <div>Timeless elegance for the modern woman. Curated pieces that celebrate femininity.</div>
-        </div>
-        <div class="g">
-            <p class="gt1">SHOP</p>
-            <div class="pa"><div>New Arrivals</div>
-            <div>Dresses</div>
-            <div>Tops</div>
-            <div>Accessories</div></div>
-        </div>
-        <div class="g">
-            <p  class="gt1">HELP</p>
-            <div class="pa"><div>Contact Us</div>
-            <div>About Us</div>
-            <div>Shipping</div>
-            <div>Returns</div>
-   </div>     </div>
-        <div class="g">
-            <p class="gt1">FOLLOW US</p>
-            <div class="social">
-                <i class="ri-instagram-line"></i>
-                <i class="ri-facebook-line"></i>
-                <i class="ri-twitter-line"></i>
-            </div>
-        </div>
-    </footer>
+        <div id="footer"></div>
+        <script>
+            fetch("footer.html")
+                .then(res => res.text())
+                .then(data => document.getElementById("footer").innerHTML = data);
+        </script>
 </body>
 
 </html>

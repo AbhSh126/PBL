@@ -6,36 +6,6 @@
   --font-one:"Montserrat", sans-serif;
   --font-two: "Lora", serif;
 }
-header{
-  position: sticky;
-    top: 0;
-    z-index: 1000;
-    background-color: #fff;
-}
-nav{
-  height: 65px;
-  display:flex; 
-  justify-content: space-between;
-  align-items: center;
-}
-.logo{
-  height: 65px;
-}
-.menu{
-  display: flex;
-  justify-content: space-between;
-  font-family: var(--font-one);
-  gap: 20px;
-    font-size: 15px;
-}
-.side{
-  display: flex;
-  gap:10px;
-  padding-right: 15px;
-}
-i{
-  font-size: 20px;
-}
 .bi{
   background-image: url(/PBL/assets/images/pink-dress-1920-x-1080-wallpaper-215ptm291xqq04wd.jpg);
   height: 600px;
@@ -194,39 +164,4 @@ input{
   font-weight: 500;
   font-size: 16px;
   font-family: var(--font-one);
-}
-footer{
-  height:200px;
-  background-color: #baa5a864;
-  display:grid;
-  grid-template-columns: repeat(4,1fr);
-  padding:20px;
-  gap:40px;
-}
-footer div{
-  font-family: var(--font-one);
-  font-size: 12px;
-  color:rgb(106, 77, 54);
-  padding: 7px 0px;
-}
-.gt1{
-  font-family: var(--font-two);
-  font-size: 15px;
-  color:rgb(42, 31, 21);
-}
-/* .g .pa{
-  margin-top: 15px;
-} */
-.gh div{
-  margin-top: 15px;
-}
-.social{
-  margin-top: 15px;
-}
-.social i{
-    padding:5px;
-    padding-left: 0px;
-}
-.gh p{
-  font-size: 20px;
 }
