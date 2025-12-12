@@ -196,6 +196,37 @@ input{
   font-family: var(--font-one);
 }
 footer{
-  height:400px;
-  background-color: #faadb864;
+  height:200px;
+  background-color: #baa5a864;
+  display:grid;
+  grid-template-columns: repeat(4,1fr);
+  padding:20px;
+  gap:40px;
+}
+footer div{
+  font-family: var(--font-one);
+  font-size: 12px;
+  color:rgb(106, 77, 54);
+  padding: 7px 0px;
+}
+.gt1{
+  font-family: var(--font-two);
+  font-size: 15px;
+  color:rgb(42, 31, 21);
+}
+/* .g .pa{
+  margin-top: 15px;
+} */
+.gh div{
+  margin-top: 15px;
+}
+.social{
+  margin-top: 15px;
+}
+.social i{
+    padding:5px;
+    padding-left: 0px;
+}
+.gh p{
+  font-size: 20px;
 }
