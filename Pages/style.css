@@ -7,7 +7,7 @@
   --font-two: "Lora", serif;
 }
 .bi{
-  background-image: url(/PBL/assets/images/pink-dress-1920-x-1080-wallpaper-215ptm291xqq04wd.jpg);
+  background-image: url(/assets/images/pink-dress-1920-x-1080-wallpaper-215ptm291xqq04wd.jpg);
   height: 600px;
   background-size: cover;
   background-position: center;
@@ -79,16 +79,16 @@ button .one{
     display: block;
 }
 .card1{
-  background-image: url(/PBL/assets/images/cute-summer-dressesat0-75x-681b87afd0fa9.avif);
+  background-image: url(/assets/images/cute-summer-dressesat0-75x-681b87afd0fa9.avif);
 }
 .card2{
-  background-image: url(/PBL/assets/images/top.avif);
+  background-image: url(/assets/images/top.avif);
 }
 .card3{
-  background-image: url(/PBL/assets/images/bottoms.jpg);
+  background-image: url(/assets/images/bottoms.jpg);
 }
 .card4{
-  background-image: url(/PBL/assets/images/ethnic.jpg);
+  background-image: url(/assets/images/ethnic.jpg);
 }
 .container-two{
   /* background-color: #fbe2d7; */
@@ -164,4 +164,16 @@ input{
   font-weight: 500;
   font-size: 16px;
   font-family: var(--font-one);
+}
+.shop, .space{
+  background-color: #faadb864;
+}
+.filters{
+  display:flex;
+  align-items: center;
+}
+.filters button{
+  background-color: #fd8397;
+  display: flex;
+  gap:10px;
 }
