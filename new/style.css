@@ -1,356 +1,357 @@
-/* --- GLOBAL STYLES --- */
-* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
-body { background-color: #f9f9f9; color: #333; }
-a { text-decoration: none; color: inherit; }
-ul { list-style: none; }
+/* =========================================
+   1. RESET & VARIABLES (The Luxury Palette)
+   ========================================= */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Poppins:wght@300;400;500;600&display=swap');
 
-/* Navbar */
+:root {
+    --bg-color: #ffffff;
+    --text-main: #111111;       /* Jet Black */
+    --text-muted: #666666;
+    --accent: #d63384;          /* Signature Pink */
+    --accent-dark: #a82060;
+    --border-light: #e5e5e5;
+    --glass: rgba(255, 255, 255, 0.9);
+    --shadow-soft: 0 10px 40px rgba(0,0,0,0.04);
+    --shadow-hover: 0 20px 50px rgba(0,0,0,0.08);
+    --transition: cubic-bezier(0.22, 1, 0.36, 1); /* Elegant easing */
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.7;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+/* Typography Hierarchy */
+h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 400;
+    color: var(--text-main);
+    letter-spacing: -0.5px;
+}
+
+a { text-decoration: none; color: inherit; transition: 0.4s var(--transition); }
+ul { list-style: none; }
+img { max-width: 100%; display: block; }
+
+/* =========================================
+   2. GLASSMORPHISM NAVBAR
+   ========================================= */
 .navbar {
     display: flex; justify-content: space-between; align-items: center;
-    padding: 1.2rem 5%; background: white; box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-    position: sticky; top: 0; z-index: 100;
+    padding: 1.5rem 5%;
+    background: var(--glass);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    position: sticky; top: 0; z-index: 1000;
+    border-bottom: 1px solid rgba(0,0,0,0.03);
+    transition: 0.4s;
 }
-.logo { font-size: 1.8rem; font-weight: 600; color: #d63384; }
-.nav-links { display: flex; gap: 25px; }
-.nav-links a:hover, .nav-links a.active { color: #d63384; font-weight: 600; }
-.cart-icon { cursor: pointer; font-size: 1.2rem; position: relative; }
+
+.logo {
+    font-size: 2rem; font-weight: 600; letter-spacing: -1px;
+    font-family: 'Playfair Display', serif; font-style: italic;
+    color: var(--accent);
+}
+
+.nav-links { display: flex; gap: 40px; }
+
+.nav-links a {
+    font-size: 0.85rem; font-weight: 500; text-transform: uppercase;
+    letter-spacing: 1px; color: var(--text-main); position: relative;
+}
+
+.nav-links a::after {
+    content: ''; position: absolute; bottom: -5px; left: 0;
+    width: 0%; height: 1px; background: var(--text-main);
+    transition: 0.4s var(--transition);
+}
+
+.nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+
+.cart-icon { position: relative; font-size: 1.4rem; cursor: pointer; }
 #cart-count {
-    background: #d63384; color: white; font-size: 0.75rem;
-    padding: 2px 6px; border-radius: 50%; position: absolute; top: -8px; right: -10px;
+    position: absolute; top: -5px; right: -10px;
+    background: var(--text-main); color: white;
+    font-size: 0.7rem; width: 18px; height: 18px;
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
 }
 
-/* Hero Section */
+/* =========================================
+   3. CINEMATIC HERO SECTION
+   ========================================= */
 .hero {
-    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
-    background-size: cover; background-position: center; height: 70vh;
-    display: flex; align-items: center; justify-content: center; text-align: center; color: white;
+    height: 90vh;
+    background: url('https://images.unsplash.com/photo-1469334031218-e382a71b716b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80') center/cover no-repeat fixed;
+    display: flex; align-items: center; justify-content: center;
+    text-align: center; color: white;
+    position: relative;
 }
-.hero h1 { font-size: 3.5rem; margin-bottom: 10px; }
+
+/* Dark overlay for readability */
+.hero::before {
+    content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.3);
+}
+
+.hero-content { position: relative; z-index: 2; max-width: 800px; padding: 0 20px; }
+
+.hero h1 {
+    font-size: 4.5rem; line-height: 1.1; margin-bottom: 20px;
+    color: white; font-weight: 400;
+}
+
+.hero p {
+    font-size: 1.1rem; margin-bottom: 40px; font-weight: 300;
+    letter-spacing: 1px; color: rgba(255,255,255,0.9);
+}
+
+/* Global Button Styles */
 .btn {
-    background: #d63384; color: white; padding: 12px 25px; border-radius: 5px;
-    border: none; cursor: pointer; transition: 0.3s; font-size: 1rem;
-    display: inline-block;
+    display: inline-block; padding: 15px 40px;
+    background: var(--text-main); color: white;
+    font-weight: 600; text-transform: uppercase; letter-spacing: 2px;
+    font-size: 0.8rem; border: 1px solid var(--text-main);
+    cursor: pointer; transition: 0.4s var(--transition);
 }
-.btn:hover { background: #b02a6b; }
 
-/* Common Layouts */
-.container { padding: 4rem 5%; }
-.section-title { text-align: center; margin-bottom: 3rem; font-size: 2rem; }
+.btn:hover {
+    background: transparent; color: var(--text-main);
+}
 
-/* Product Cards */
-.product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
-.product-card { background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.1); text-align: center; transition: transform 0.3s; }
-.product-card:hover { transform: translateY(-5px); }
-.product-card img { width: 100%; height: 320px; object-fit: cover; }
-.product-info { padding: 15px; }
-.product-info h4 { margin: 10px 0; font-weight: 500; }
-.product-info p { color: #d63384; font-weight: bold; margin-bottom: 10px; }
+/* Hero Button specific overrides */
+.hero .btn { background: white; color: black; border-color: white; }
+.hero .btn:hover { background: transparent; color: white; }
 
-/* SHOP PAGE LAYOUT */
+/* =========================================
+   4. LAYOUT UTILITIES
+   ========================================= */
+.container { padding: 6rem 5%; max-width: 1400px; margin: 0 auto; }
+
+.section-title {
+    font-size: 2.8rem; text-align: center; margin-bottom: 4rem;
+    position: relative; padding-bottom: 20px;
+}
+.section-title::after {
+    content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
+    width: 60px; height: 1px; background: var(--text-main);
+}
+
+/* =========================================
+   5. PRODUCT CARDS (3-Column Fix)
+   ========================================= */
+.product-grid {
+    display: grid;
+    /* Min-width 200px ensures 3 items fit on laptops */
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 40px 25px; /* Tighter gap for better fit */
+}
+
+.product-card {
+    background: transparent; border: none;
+    transition: 0.4s var(--transition);
+}
+
+.product-card:hover { transform: translateY(-10px); }
+
+.product-card a { display: block; overflow: hidden; position: relative; }
+
+.product-card img {
+    width: 100%; height: 320px; object-fit: cover;
+    transition: transform 0.6s var(--transition);
+}
+
+.product-card:hover img { transform: scale(1.08); }
+
+.product-info { padding: 15px 0; text-align: center; }
+
+.product-info h4 {
+    font-size: 1rem; margin-bottom: 5px; font-family: 'Poppins', sans-serif;
+    font-weight: 400; color: var(--text-main);
+}
+
+.product-info p {
+    color: var(--text-muted); font-size: 0.95rem; margin-bottom: 15px;
+}
+
+/* Button appears on hover */
+.product-info .btn {
+    width: 100%; padding: 12px;
+    opacity: 0; transform: translateY(10px);
+}
+.product-card:hover .product-info .btn { opacity: 1; transform: translateY(0); }
+
+/* =========================================
+   6. SHOP PAGE
+   ========================================= */
 .shop-layout { display: flex; gap: 40px; }
-.shop-sidebar { width: 250px; flex-shrink: 0; }
-.shop-sidebar h3 { margin-bottom: 15px; border-bottom: 2px solid #d63384; display: inline-block; }
-.category-list li { margin-bottom: 10px; cursor: pointer; transition: 0.2s; }
-.category-list li:hover { color: #d63384; padding-left: 5px; }
+.shop-sidebar { width: 220px; flex-shrink: 0; }
 .shop-products { flex-grow: 1; }
 
-/* ABOUT & CONTACT PAGES */
-.about-content { display: flex; align-items: center; gap: 40px; }
-.about-img { flex: 1; border-radius: 10px; overflow: hidden; }
-.about-img img { width: 100%; height: auto; }
-.about-text { flex: 1; }
+.shop-sidebar h3 {
+    font-size: 1.5rem; margin-bottom: 30px;
+    border-bottom: 1px solid var(--border-light); padding-bottom: 15px;
+}
 
-.contact-wrapper { display: flex; gap: 50px; justify-content: center; }
-.contact-form { flex: 1; max-width: 500px; display: flex; flex-direction: column; gap: 15px; }
-.contact-form input, .contact-form textarea { padding: 12px; border: 1px solid #ddd; border-radius: 5px; outline: none; }
-.contact-info { flex: 1; max-width: 400px; }
+.category-list li {
+    padding: 10px 0; color: var(--text-muted); cursor: pointer;
+    transition: 0.3s; font-size: 0.95rem; display: flex; justify-content: space-between;
+}
 
-/* CART SIDEBAR */
+.category-list li:hover { color: var(--text-main); padding-left: 10px; }
+
+/* =========================================
+   7. CONTACT PAGE (Styled to match Luxury Theme)
+   ========================================= */
+.contact-wrapper { display: flex; gap: 80px; align-items: flex-start; }
+.contact-info { flex: 1; }
+.contact-form { flex: 1.5; }
+
+.contact-info h3 { font-size: 1.2rem; margin-bottom: 10px; margin-top: 20px; }
+.contact-info p { color: var(--text-muted); font-size: 0.95rem; }
+
+/* Sleek Input Styles for Contact */
+.contact-form input, .contact-form textarea {
+    width: 100%; padding: 15px 0;
+    border: none; border-bottom: 1px solid var(--border-light);
+    background: transparent; outline: none;
+    font-family: 'Poppins', sans-serif; font-size: 1rem;
+    transition: 0.3s; margin-bottom: 20px;
+}
+
+.contact-form input:focus, .contact-form textarea:focus {
+    border-bottom-color: var(--text-main);
+}
+
+/* =========================================
+   8. CHECKOUT PAGE (Styled to match Luxury Theme)
+   ========================================= */
+.checkout-wrapper { display: flex; gap: 80px; padding-top: 2rem; }
+.checkout-form { flex: 1.5; }
+
+/* Boxed Summary */
+.checkout-summary {
+    flex: 1; background: #fafafa; padding: 40px;
+    height: fit-content; border: 1px solid var(--border-light);
+}
+
+.checkout-form h3, .checkout-summary h3 { margin-bottom: 25px; font-size: 1.5rem; }
+
+/* Sleek Input Styles for Checkout (Consistent with Contact) */
+.form-group { margin-bottom: 25px; }
+.form-group label {
+    font-size: 0.8rem; text-transform: uppercase;
+    color: var(--text-muted); letter-spacing: 1px; display: block; margin-bottom: 5px;
+}
+.form-group input {
+    width: 100%; padding: 12px 0;
+    border: none; border-bottom: 1px solid var(--border-light);
+    background: transparent; outline: none;
+    font-family: 'Poppins', sans-serif; font-size: 1rem;
+    transition: 0.3s;
+}
+.form-group input:focus { border-bottom-color: var(--text-main); }
+.form-row { display: flex; gap: 30px; }
+.form-row .form-group { flex: 1; }
+
+.checkout-item {
+    display: flex; justify-content: space-between;
+    padding: 15px 0; border-bottom: 1px dashed var(--border-light);
+    font-size: 0.95rem;
+}
+.summary-row { display: flex; justify-content: space-between; margin-bottom: 10px; }
+.summary-row.total {
+    font-size: 1.4rem; font-family: 'Playfair Display', serif;
+    margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--border-light);
+}
+
+/* =========================================
+   9. PRODUCT DETAILS PAGE
+   ========================================= */
+.product-detail-wrapper { display: flex; gap: 80px; }
+.product-detail-image { flex: 1; }
+.product-detail-info { flex: 1; }
+
+.product-detail-image img { width: 100%; object-fit: cover; }
+
+.product-detail-info h1 { font-size: 3rem; line-height: 1.1; margin-bottom: 20px; }
+.detail-price { font-size: 1.8rem; font-weight: 300; margin-bottom: 30px; }
+.detail-description { color: var(--text-muted); margin-bottom: 40px; font-weight: 300; }
+
+.size-selector { display: flex; gap: 15px; margin: 15px 0 30px; }
+.size-btn {
+    width: 45px; height: 45px; border: 1px solid var(--border-light);
+    background: white; cursor: pointer; transition: 0.3s;
+}
+.size-btn:hover, .size-btn.active { background: var(--text-main); color: white; border-color: var(--text-main); }
+
+.add-cart-large {
+    width: 100%; padding: 18px; margin-top: 20px;
+    background: var(--text-main); color: white; letter-spacing: 2px;
+}
+
+/* =========================================
+   10. CART SIDEBAR & MODAL
+   ========================================= */
 .sidebar {
-    position: fixed; top: 0; right: -100%; width: 350px; height: 100%;
-    background: white; box-shadow: -2px 0 5px rgba(0,0,0,0.2);
-    transition: 0.3s; z-index: 200; padding: 20px; display: flex; flex-direction: column;
+    position: fixed; top: 0; right: -450px; width: 450px; height: 100%;
+    background: white; z-index: 2000; padding: 40px;
+    box-shadow: -10px 0 40px rgba(0,0,0,0.05);
+    display: flex; flex-direction: column; transition: 0.5s var(--transition);
 }
 .sidebar.active { right: 0; }
-.sidebar-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #ddd; padding-bottom: 10px; }
-.cart-items { flex: 1; overflow-y: auto; margin-top: 10px; }
-.cart-item { display: flex; justify-content: space-between; margin-bottom: 15px; border-bottom: 1px solid #eee; padding-bottom: 10px; }
-.overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); display: none; z-index: 150; }
+.sidebar-header {
+    display: flex; justify-content: space-between; align-items: center;
+    border-bottom: 1px solid var(--border-light); padding-bottom: 20px; margin-bottom: 20px;
+}
+.cart-items { flex: 1; overflow-y: auto; }
+.cart-item {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 15px 0; border-bottom: 1px solid var(--border-light);
+}
+.overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.5); display: none; z-index: 1500; backdrop-filter: blur(2px);
+}
 .overlay.active { display: block; }
 
-/* Footer */
-footer { text-align: center; padding: 20px; background: #333; color: white; margin-top: 40px; }
-
-/* Responsive */
-@media (max-width: 768px) {
-    .shop-layout { flex-direction: column; }
-    .about-content { flex-direction: column; }
-    .contact-wrapper { flex-direction: column; }
-    .sidebar { width: 100%; }
-    .hero h1 { font-size: 2.5rem; }
-}
-
-/* ============================
-   CHECKOUT PAGE STYLES (IMPROVED)
-   ============================ */
-
-.checkout-wrapper {
-    display: flex;
-    gap: 50px; /* Increased gap */
-    padding: 3rem 5% 5rem;
-    max-width: 1100px; /* Slightly narrower for better focus */
-    margin: 0 auto;
-}
-
-/* --- Left Column: Form Styling --- */
-.checkout-form {
-    flex: 3; /* Give form more space relative to summary */
-}
-
-.checkout-form h3 {
-    margin-bottom: 25px;
-    font-size: 1.4rem;
-    color: #333;
-    position: relative;
-    padding-bottom: 10px;
-}
-
-/* Add a small pink underline to headings */
-.checkout-form h3::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 40px;
-    height: 3px;
-    background: #d63384;
-}
-
-.form-group {
-    margin-bottom: 20px;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: 500;
-    color: #555;
-    font-size: 0.95rem;
-}
-
-/* Modern Input Styling */
-.form-group input {
-    width: 100%;
-    padding: 14px 16px; /* Larger touch targets */
-    border: 2px solid #eee;
-    border-radius: 8px; /* Softer corners */
-    background: #fcfcfc;
-    font-size: 1rem;
-    color: #333;
-    transition: all 0.3s ease;
-}
-
-.form-group input:focus {
-    outline: none;
-    border-color: #d63384; /* Brand color on focus */
-    background: white;
-    box-shadow: 0 2px 8px rgba(214, 51, 132, 0.1);
-}
-
-.form-group input::placeholder {
-    color: #aaa;
-}
-
-/* Row for City/Zip and Card Details */
-.form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-}
-
-/* The main action button */
-.place-order-btn {
-    width: 100%;
-    margin-top: 30px;
-    font-size: 1.1rem;
-    font-weight: 600;
-    padding: 16px;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(214, 51, 132, 0.2);
-}
-
-.place-order-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 15px rgba(214, 51, 132, 0.3);
-}
-
-.place-order-btn:disabled {
-    background: #ccc;
-    cursor: not-allowed;
-    transform: none;
-    box-shadow: none;
-}
-
-/* --- Right Column: Order Summary Card --- */
-.checkout-summary {
-    flex: 2;
-    background: #fff;
-    padding: 35px;
-    border-radius: 16px;
-    /* A soft, elevated shadow look */
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05), 0 2px 5px rgba(0,0,0,0.02);
-    height: fit-content; /* Stays compact */
-    border: 1px solid rgba(0,0,0,0.04);
-    position: sticky;
-    top: 100px; /* Sticks on scroll on large screens */
-}
-
-.checkout-summary h3 {
-    margin-bottom: 25px;
-    font-size: 1.3rem;
-    text-align: center;
-}
-
-/* Individual items in the summary list */
-.checkout-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 18px;
-    font-size: 0.95rem;
-    color: #555;
-    padding-bottom: 12px;
-    border-bottom: 1px dotted #eee;
-}
-
-.checkout-item span:first-child {
-    font-weight: 500;
-    color: #333;
-}
-
-/* The divider lines */
-.checkout-summary hr {
-    border: 0;
-    height: 2px;
-    background: #eee;
-    margin: 25px 0;
-}
-
-/* Subtotal and Shipping rows */
-.summary-row {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 12px;
-    font-size: 1rem;
-    color: #666;
-}
-
-/* The final total row */
-.summary-row.total {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: #333;
-    align-items: center;
-    margin-top: 15px;
-}
-
-.summary-row.total span:last-child {
-    color: #d63384; /* Pink accent for final price */
-}
-
-
-/* --- Responsive Checkout Adjustments --- */
-@media (max-width: 900px) {
-    .checkout-wrapper {
-        flex-direction: column-reverse; /* Summary moves above form on mobile */
-        gap: 30px;
-        padding: 2rem 5%;
-    }
-
-    .checkout-summary {
-        position: static; /* Don't stick on mobile */
-        padding: 25px;
-    }
-    
-    .form-row {
-        grid-template-columns: 1fr; /* Stack inputs on small screens */
-        gap: 0;
-    }
-}
-/* --- ORDER SIMULATION MODAL --- */
+/* Order Modal */
 .order-modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.7); /* Dark dimmed background */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease;
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(255,255,255,0.95); z-index: 3000;
+    display: flex; justify-content: center; align-items: center;
+    opacity: 0; visibility: hidden; transition: 0.4s;
 }
-
-.order-modal.active {
-    opacity: 1;
-    visibility: visible;
-}
-
-.modal-content {
-    background: white;
-    padding: 40px;
-    border-radius: 15px;
-    text-align: center;
-    width: 90%;
-    max-width: 400px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-    transform: scale(0.8);
-    transition: transform 0.3s ease;
-}
-
-.order-modal.active .modal-content {
-    transform: scale(1);
-}
-
-/* Spinner Animation */
+.order-modal.active { opacity: 1; visibility: visible; }
+.modal-content { text-align: center; }
 .spinner {
-    border: 5px solid #f3f3f3;
-    border-top: 5px solid #d63384; /* Pink brand color */
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    animation: spin 1s linear infinite;
-    margin: 0 auto 20px;
+    border: 3px solid #eee; border-top: 3px solid var(--text-main);
+    width: 50px; height: 50px; border-radius: 50%; margin: 0 auto 20px;
+    animation: spin 0.8s linear infinite;
 }
+@keyframes spin { 100% { transform: rotate(360deg); } }
 
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+/* =========================================
+   11. FOOTER & RESPONSIVE
+   ========================================= */
+footer {
+    background: #111; color: white; padding: 60px 20px;
+    text-align: center; margin-top: 100px;
 }
+footer p { font-weight: 300; letter-spacing: 1px; opacity: 0.7; }
 
-/* Success Icon (Hidden initially) */
-.success-icon {
-    display: none;
-    font-size: 50px;
-    color: #28a745; /* Green */
-    margin-bottom: 20px;
-    animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-@keyframes popIn {
-    0% { transform: scale(0); opacity: 0; }
-    100% { transform: scale(1); opacity: 1; }
-}
-
-.modal-content h2 {
-    color: #333;
-    margin-bottom: 10px;
-}
-
-.modal-content p {
-    color: #666;
-    font-size: 0.9rem;
+@media (max-width: 768px) {
+    .hero h1 { font-size: 3rem; }
+    .nav-links { display: none; }
+    .shop-layout, .contact-wrapper, .checkout-wrapper, .product-detail-wrapper {
+        flex-direction: column;
+    }
+    .sidebar { width: 100%; }
+    .shop-sidebar { width: 100%; overflow-x: auto; margin-bottom: 20px;}
+    .category-list { display: flex; gap: 20px; padding-bottom: 10px; }
+    .category-list li { white-space: nowrap; border: 1px solid var(--border-light); padding: 5px 15px; border-radius: 20px; }
 }

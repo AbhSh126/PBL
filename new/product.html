@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loop | Product Details</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">Loop.</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="cart-icon" onclick="toggleCart()">
+            🛒 <span id="cart-count">0</span>
+        </div>
+    </nav>
+
+    <div class="container product-detail-container">
+        <div class="breadcrumb">
+            <a href="shop.html">Shop</a> &gt; <span id="breadcrumb-name">Product Name</span>
+        </div>
+
+        <div class="product-detail-wrapper">
+            <div class="product-detail-image">
+                <img id="main-image" src="" alt="Product Image">
+            </div>
+
+            <div class="product-detail-info">
+                <h1 id="detail-name">Product Title</h1>
+                <p class="detail-price">Rs. <span id="detail-price">0.00</span></p>
+                
+                <p class="detail-description">
+                    This is a premium quality product from Loop. Made with sustainable materials and designed for the modern woman. Perfect for any occasion.
+                </p>
+
+                <div class="detail-option">
+                    <label>Size</label>
+                    <div class="size-selector">
+                        <button class="size-btn">XS</button>
+                        <button class="size-btn active">S</button>
+                        <button class="size-btn">M</button>
+                        <button class="size-btn">L</button>
+                        <button class="size-btn">XL</button>
+                    </div>
+                </div>
+
+                <div class="detail-option">
+                    <label>Quantity</label>
+                    <input type="number" value="1" min="1" max="10" class="quantity-input">
+                </div>
+
+                <button id="add-to-cart-btn" class="btn add-cart-large">Add to Cart</button>
+                
+                <div class="product-meta">
+                    <p>Category: <span id="detail-category" style="text-transform: capitalize;">Category</span></p>
+                    <p>Free Shipping on orders over Rs. 2000</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="container">
+        <h2 class="section-title">You Might Also Like</h2>
+        <div id="related-products" class="product-grid">
+            </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Loop Clothing. All rights reserved.</p>
+    </footer>
+
+    <div id="cart-sidebar" class="sidebar">
+        <div class="sidebar-header">
+            <h3>Your Cart</h3>
+            <span onclick="toggleCart()" class="close-btn" style="cursor: pointer;">&times;</span>
+        </div>
+        <div id="cart-items" class="cart-items"></div>
+        <div class="sidebar-footer">
+            <h3>Total: Rs. <span id="cart-total">0.00</span></h3>
+            <button class="btn" onclick="window.location.href='checkout.html'" style="width:100%">Checkout</button>
+        </div>
+    </div>
+    <div id="overlay" class="overlay" onclick="toggleCart()"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
