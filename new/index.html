@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loop | Home</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">Loop.</div>
+        <ul class="nav-links">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="cart-icon" onclick="toggleCart()">🛒 <span id="cart-count">0</span></div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Elevate Your Style</h1>
+            <p>Discover the latest trends in women's fashion.</p>
+            <a href="shop.html" class="btn">Shop Now</a>
+        </div>
+    </header>
+
+    <section class="container">
+        <h2 class="section-title">Featured Collection</h2>
+        <div id="featured-products" class="product-grid"></div>
+    </section>
+
+    <section class="container" style="background: #f0f0f0;">
+        <h2 class="section-title">New Arrivals</h2>
+        <div id="new-arrivals" class="product-grid"></div>
+    </section>
+
+    <footer><p>&copy; 2025 Loop Clothing.</p></footer>
+    
+    <div id="cart-sidebar" class="sidebar">
+        <div class="sidebar-header"><h3>Your Cart</h3><span onclick="toggleCart()" style="cursor:pointer;">&times;</span></div>
+        <div id="cart-items" class="cart-items"></div>
+        <div class="sidebar-footer"><h3>Total: Rs. <span id="cart-total">0.00</span></h3><button class="btn" style="width:100%">Checkout</button></div>
+    </div>
+    <div id="overlay" class="overlay" onclick="toggleCart()"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
