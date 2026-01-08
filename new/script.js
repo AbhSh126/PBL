@@ -272,3 +272,7 @@ window.addEventListener('scroll', () => {
         navbar.style.boxShadow = 'none';
     }
 });
+function toggleMenu() {
+    const navLinks = document.querySelector('.nav-links');
+    navLinks.classList.toggle('active');
+}

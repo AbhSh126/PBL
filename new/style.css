@@ -39,46 +39,66 @@ ul { list-style: none; }
 img { max-width: 100%; display: block; }
 
 /* =========================================
-   2. GLASSMORPHISM NAVBAR
+   2. NAVBAR & MOBILE MENU (FIXED)
    ========================================= */
 .navbar {
-    display: flex; justify-content: space-between; align-items: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding: 1.5rem 5%;
-    background: var(--glass);
+    background: rgba(255, 255, 255, 0.95); /* More opaque */
     backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    position: sticky; top: 0; z-index: 1000;
-    border-bottom: 1px solid rgba(0,0,0,0.03);
-    transition: 0.4s;
+    position: sticky;
+    top: 0;
+    z-index: 9999; /* Highest priority */
+    border-bottom: 1px solid rgba(0,0,0,0.05);
 }
 
 .logo {
-    font-size: 2rem; font-weight: 600; letter-spacing: -1px;
-    font-family: 'Playfair Display', serif; font-style: italic;
+    font-size: 1.8rem;
+    font-weight: 600;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
     color: var(--accent);
 }
 
-.nav-links { display: flex; gap: 40px; }
+/* Default Desktop Links */
+.nav-links {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
 
 .nav-links a {
-    font-size: 0.85rem; font-weight: 500; text-transform: uppercase;
-    letter-spacing: 1px; color: var(--text-main); position: relative;
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-main);
+    position: relative;
 }
 
-.nav-links a::after {
-    content: ''; position: absolute; bottom: -5px; left: 0;
-    width: 0%; height: 1px; background: var(--text-main);
-    transition: 0.4s var(--transition);
+/* Hamburger Icon (Hidden on Desktop) */
+.hamburger {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 6px;
+    z-index: 10001; /* Above the slide-out menu */
 }
 
-.nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+.hamburger span {
+    width: 25px;
+    height: 2px;
+    background-color: #111;
+    transition: 0.3s;
+}
 
-.cart-icon { position: relative; font-size: 1.4rem; cursor: pointer; }
-#cart-count {
-    position: absolute; top: -5px; right: -10px;
-    background: var(--text-main); color: white;
-    font-size: 0.7rem; width: 18px; height: 18px;
-    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+.cart-icon {
+    font-size: 1.4rem;
+    cursor: pointer;
+    position: relative;
+    z-index: 10001;
 }
 
 /* =========================================
@@ -344,9 +364,12 @@ footer {
 }
 footer p { font-weight: 300; letter-spacing: 1px; opacity: 0.7; }
 
+/* Stack layouts for mobile (General Page Layouts) */
 @media (max-width: 768px) {
     .hero h1 { font-size: 3rem; }
-    .nav-links { display: none; }
+    
+    /* Removed .nav-links { display: none; } because it broke the hamburger menu */
+
     .shop-layout, .contact-wrapper, .checkout-wrapper, .product-detail-wrapper {
         flex-direction: column;
     }
@@ -354,4 +377,65 @@ footer p { font-weight: 300; letter-spacing: 1px; opacity: 0.7; }
     .shop-sidebar { width: 100%; overflow-x: auto; margin-bottom: 20px;}
     .category-list { display: flex; gap: 20px; padding-bottom: 10px; }
     .category-list li { white-space: nowrap; border: 1px solid var(--border-light); padding: 5px 15px; border-radius: 20px; }
+}
+
+/* =========================================
+   12. MOBILE NAVIGATION (FIXED)
+   ========================================= */
+
+/* Default: Hide Close Button on Desktop */
+/* IMPORTANT: This must be outside the media query */
+.mobile-close-btn { 
+    display: none; 
+}
+
+@media (max-width: 768px) {
+    /* 1. Show the Hamburger with HIGH z-index so it's clickable */
+    .hamburger {
+        display: flex;
+        z-index: 2001; 
+    }
+
+    /* 2. Slide-out Menu */
+    .nav-links {
+        position: fixed;
+        top: 0;
+        left: -100%; /* Hidden off-screen */
+        width: 100%;
+        height: 100vh;
+        background: white;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 40px;
+        
+        /* Z-index lower than hamburger (2001) but higher than page */
+        z-index: 2000; 
+        transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 0 50px rgba(0,0,0,0.1);
+    }
+
+    /* 3. The 'Active' class slides it in */
+    .nav-links.active {
+        left: 0;
+    }
+
+    /* 4. Make Mobile Links Bigger */
+    .nav-links a {
+        font-size: 1.5rem;
+        font-family: 'Playfair Display', serif;
+        color: #111;
+    }
+
+    /* 5. Show Close Button */
+    .mobile-close-btn {
+        display: block;
+        position: absolute;
+        top: 30px;
+        right: 30px;
+        font-size: 3rem;
+        cursor: pointer;
+        z-index: 2002; /* Topmost layer */
+        line-height: 1;
+    }
 }
