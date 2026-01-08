@@ -59,7 +59,7 @@ img { max-width: 100%; display: block; }
     font-weight: 600;
     font-family: 'Playfair Display', serif;
     font-style: italic;
-    color: var(--accent);
+    color: rgb(28, 27, 27);
 }
 
 /* Default Desktop Links */
@@ -106,7 +106,7 @@ img { max-width: 100%; display: block; }
    ========================================= */
 .hero {
     height: 90vh;
-    background: url('https://images.unsplash.com/photo-1469334031218-e382a71b716b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80') center/cover no-repeat fixed;
+    background: url('https://colorhunt.ai/assets/img/hero-section-bg.webp') center/cover no-repeat fixed;
     display: flex; align-items: center; justify-content: center;
     text-align: center; color: white;
     position: relative;

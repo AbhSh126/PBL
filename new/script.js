@@ -1,51 +1,51 @@
 // --- 1. PRODUCT DATA (35 Items) ---
 const products = [
     // --- DRESSES ---
-    { id: 1, name: "Floral Summer Dress", price: 1499, category: "dresses", image: "https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?w=400" },
-    { id: 2, name: "Elegant Evening Gown", price: 3499, category: "dresses", image: "https://images.unsplash.com/photo-1566174053879-31528523f8ae?w=400" },
-    { id: 3, name: "Boho Maxi Dress", price: 1899, category: "dresses", image: "https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=400" },
-    { id: 4, name: "Red Bodycon Dress", price: 2100, category: "dresses", image: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=400" },
-    { id: 5, name: "Polka Dot Midi", price: 1250, category: "dresses", image: "https://images.unsplash.com/photo-1612336307429-8a898d10e223?w=400" },
-    { id: 6, name: "White Lace Sundress", price: 1699, category: "dresses", image: "https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=400" },
+    { id: 1, name: "Floral Summer Dress", price: 1499, category: "dresses", image: "https://i.pinimg.com/1200x/9d/e7/73/9de7736407bcfd1f298770b431790fad.jpg" },
+    { id: 2, name: "Elegant Evening Gown", price: 3499, category: "dresses", image: "https://i.pinimg.com/736x/c1/6e/2f/c16e2f657122b6bdf7e0d14150207c2d.jpg" },
+    { id: 3, name: "Boho Maxi Dress", price: 1899, category: "dresses", image: "https://i.pinimg.com/1200x/e5/46/9c/e5469c86db621357b5deea9486e6da3f.jpg" },
+    { id: 4, name: "Red Bodycon Dress", price: 2100, category: "dresses", image: "https://i.pinimg.com/1200x/30/3d/19/303d1955e7ecd13f3b05dfcec871708d.jpg" },
+    { id: 5, name: "Polka Dot Midi", price: 1250, category: "dresses", image: "https://i.pinimg.com/1200x/d6/de/6b/d6de6b41c96af9c23f20506e1661cb3f.jpg" },
+    { id: 6, name: "White Lace Sundress", price: 1699, category: "dresses", image: "https://i.pinimg.com/736x/6e/07/de/6e07dee8da81d1387036a2b5a61a52af.jpg" },
 
     // --- TOPS ---
-    { id: 7, name: "Silk Blouse", price: 1299, category: "tops", image: "https://images.unsplash.com/photo-1589810635657-232948472d98?w=400" },
-    { id: 8, name: "Casual Crop Top", price: 699, category: "tops", image: "https://images.unsplash.com/photo-1503342394128-c104d54dba01?w=400" },
-    { id: 9, name: "Striped Cotton Shirt", price: 999, category: "tops", image: "https://images.unsplash.com/photo-1551163943-3f6a29e39bb7?w=400" },
-    { id: 10, name: "Graphic Tee", price: 599, category: "tops", image: "https://images.unsplash.com/photo-1529374255404-311a2a4f1fd9?w=400" },
-    { id: 11, name: "Knitted Beige Sweater", price: 1599, category: "tops", image: "https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=400" },
-    { id: 12, name: "Black Turtleneck", price: 899, category: "tops", image: "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=400" },
+    { id: 7, name: "Silk Blouse", price: 1299, category: "tops", image: "https://i.pinimg.com/736x/3b/5f/d9/3b5fd9c23e57f77ae72620a404539587.jpg" },
+    { id: 8, name: "Casual Crop Top", price: 699, category: "tops", image: "https://i.pinimg.com/1200x/9c/8a/3b/9c8a3b05e0d9e1925c749dbf82231a17.jpg" },
+    { id: 9, name: "Striped Cotton Shirt", price: 999, category: "tops", image: "https://i.pinimg.com/736x/d4/08/b5/d408b54d77900f2797874b14450d8fbc.jpg" },
+    { id: 10, name: "Graphic Tee", price: 599, category: "tops", image: "https://i.pinimg.com/1200x/6b/2f/9b/6b2f9bb49514e6b7d687fbf8cdfda9db.jpg" },
+    { id: 11, name: "Knitted Beige Sweater", price: 1599, category: "tops", image: "https://i.pinimg.com/1200x/cd/a3/49/cda349c18da47d0417e5c34ae8f327f9.jpg" },
+    { id: 12, name: "Black Turtleneck", price: 899, category: "tops", image: "https://i.pinimg.com/1200x/13/fe/86/13fe86202c41884e0ae2addd8c82cb74.jpg" },
 
     // --- BOTTOMS ---
-    { id: 13, name: "High-Waist Jeans", price: 1599, category: "bottoms", image: "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=400" },
-    { id: 14, name: "Pleated Midi Skirt", price: 1199, category: "bottoms", image: "https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?w=400" },
-    { id: 15, name: "Black Formal Trousers", price: 1450, category: "bottoms", image: "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=400" },
-    { id: 16, name: "Denim Shorts", price: 799, category: "bottoms", image: "https://images.unsplash.com/photo-1565084888279-aca607ecce0c?w=400" },
-    { id: 17, name: "Wide Leg Palazzos", price: 1100, category: "bottoms", image: "https://images.unsplash.com/photo-1509551388413-e18d0ac5d495?w=400" },
-    { id: 18, name: "Leather Mini Skirt", price: 1350, category: "bottoms", image: "https://images.unsplash.com/photo-1582142327317-098263795b1e?w=400" },
+    { id: 13, name: "High-Waist Jeans", price: 1599, category: "bottoms", image: "https://i.pinimg.com/736x/74/e1/71/74e171c328f538a456a83f1c99a4ae9c.jpg" },
+    { id: 14, name: "Pleated Midi Skirt", price: 1199, category: "bottoms", image: "https://i.pinimg.com/736x/40/94/b7/4094b7bc8399753ea4730d0b09f6b6dc.jpg" },
+    { id: 15, name: "Black Formal Trousers", price: 1450, category: "bottoms", image: "https://i.pinimg.com/736x/38/dd/4f/38dd4f4199b35d36912f4152150d3a93.jpg" },
+    { id: 16, name: "Denim Shorts", price: 799, category: "bottoms", image: "https://i.pinimg.com/736x/e3/f6/49/e3f6496d46f8e8a20738ad92801aa110.jpg" },
+    { id: 17, name: "Wide Leg Palazzos", price: 1100, category: "bottoms", image: "https://i.pinimg.com/736x/8c/62/7a/8c627a6c9c745a0c27ddfa6d7b31cc93.jpg" },
+    { id: 18, name: "Leather Mini Skirt", price: 1350, category: "bottoms", image: "https://i.pinimg.com/736x/ff/23/c2/ff23c2bb21d0e6246aa0013d5f09fafd.jpg" },
 
     // --- OUTERWEAR ---
-    { id: 19, name: "Classic Denim Jacket", price: 1999, category: "outerwear", image: "https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=400" },
-    { id: 20, name: "Beige Trench Coat", price: 4500, category: "outerwear", image: "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=400" },
-    { id: 21, name: "Black Leather Jacket", price: 3200, category: "outerwear", image: "https://images.unsplash.com/photo-1551028919-ac66c9a3d683?w=400" },
-    { id: 22, name: "Checkered Blazer", price: 2800, category: "outerwear", image: "https://images.unsplash.com/photo-1592999014163-5477838501cb?w=400" },
-    { id: 23, name: "Winter Puffer Jacket", price: 3600, category: "outerwear", image: "https://images.unsplash.com/photo-1545595996-5f11197c36d0?w=400" },
+    { id: 19, name: "Classic Denim Jacket", price: 1999, category: "outerwear", image: "https://i.pinimg.com/1200x/e8/e4/bf/e8e4bf35a707459ab74705f51152b6ad.jpg" },
+    { id: 20, name: "Beige Trench Coat", price: 4500, category: "outerwear", image: "https://i.pinimg.com/1200x/8b/65/99/8b6599689d7de17d7b74f0cbff36b092.jpg" },
+    { id: 21, name: "Black Leather Jacket", price: 3200, category: "outerwear", image: "https://i.pinimg.com/736x/ac/1d/9a/ac1d9ae8808edf5417d48f56e334e6e0.jpg" },
+    { id: 22, name: "Checkered Blazer", price: 2800, category: "outerwear", image: "https://i.pinimg.com/736x/07/c8/a9/07c8a957dedc366ced1e040bbfb5325f.jpg" },
+    { id: 23, name: "Winter Puffer Jacket", price: 3600, category: "outerwear", image: "https://i.pinimg.com/736x/29/70/14/297014d524e83b0d4bea554aa72312d7.jpg" },
 
     // --- SHOES ---
-    { id: 24, name: "White Sneakers", price: 2199, category: "shoes", image: "https://images.unsplash.com/photo-1560769629-975e13f51863?w=400" },
-    { id: 25, name: "Leather Ankle Boots", price: 2899, category: "shoes", image: "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=400" },
-    { id: 26, name: "Strappy Heels", price: 1850, category: "shoes", image: "https://images.unsplash.com/photo-1535043934128-cf0b28d52f95?w=400" },
-    { id: 27, name: "Comfy Loafers", price: 1500, category: "shoes", image: "https://images.unsplash.com/photo-1614252369475-531eba835eb1?w=400" },
-    { id: 28, name: "Running Shoes", price: 2400, category: "shoes", image: "https://images.unsplash.com/photo-1552346154-21d32810aba3?w=400" },
-    { id: 29, name: "Summer Sandals", price: 999, category: "shoes", image: "https://images.unsplash.com/photo-1562273138-f46be4ebdf33?w=400" },
+    { id: 24, name: "White Sneakers", price: 2199, category: "shoes", image: "https://i.pinimg.com/1200x/cd/1b/4f/cd1b4f2793f47c7e478530f2b6ceaa0a.jpg" },
+    { id: 25, name: "Leather Ankle Boots", price: 2899, category: "shoes", image: "https://i.pinimg.com/736x/db/e8/df/dbe8dff17d1da158658c1dee867958bb.jpg" },
+    { id: 26, name: "Strappy Heels", price: 1850, category: "shoes", image: "https://i.pinimg.com/1200x/84/14/f1/8414f1f505617869b117872b6d5d3a30.jpg" },
+    { id: 27, name: "Comfy Loafers", price: 1500, category: "shoes", image: "https://i.pinimg.com/1200x/32/96/24/3296245e4d3f4aeae04018a777846b9f.jpg" },
+    { id: 28, name: "Running Shoes", price: 2400, category: "shoes", image: "https://i.pinimg.com/1200x/bd/ce/1e/bdce1e392ccc1ebf0d0132d46145068d.jpg" },
+    { id: 29, name: "Summer Sandals", price: 999, category: "shoes", image: "https://i.pinimg.com/736x/ec/da/59/ecda59af86fdec0f9e60feb3df26e20a.jpg" },
 
     // --- ACCESSORIES ---
-    { id: 30, name: "Canvas Tote Bag", price: 499, category: "accessories", image: "https://images.unsplash.com/photo-1544816155-12df9643f363?w=400" },
-    { id: 31, name: "Gold Layered Necklace", price: 399, category: "accessories", image: "https://images.unsplash.com/photo-1599643478518-17488fbbcd75?w=400" },
-    { id: 32, name: "Cat-Eye Sunglasses", price: 850, category: "accessories", image: "https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=400" },
-    { id: 33, name: "Leather Belt", price: 650, category: "accessories", image: "https://images.unsplash.com/photo-1624222247344-550fb60583dc?w=400" },
-    { id: 34, name: "Straw Hat", price: 550, category: "accessories", image: "https://images.unsplash.com/photo-1521369909029-2afed882baee?w=400" },
-    { id: 35, name: "Hoop Earrings", price: 299, category: "accessories", image: "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=400" }
+    { id: 30, name: "Canvas Tote Bag", price: 499, category: "accessories", image: "https://i.pinimg.com/1200x/ac/5d/45/ac5d4509219a1dadf0e266b31b0c77f7.jpg" },
+    { id: 31, name: "Gold Layered Necklace", price: 399, category: "accessories", image: "https://i.pinimg.com/1200x/5c/e3/3a/5ce33aa46241ca706b53b15755d02418.jpg" },
+    { id: 32, name: "Cat-Eye Sunglasses", price: 850, category: "accessories", image: "https://i.pinimg.com/1200x/c8/93/6c/c8936c50d7b54d48ca5315bae9517912.jpg" },
+    { id: 33, name: "Leather Belt", price: 650, category: "accessories", image: "https://i.pinimg.com/736x/e7/b7/1b/e7b71bc6afe9f9d2fca822030851135c.jpg" },
+    { id: 34, name: "Straw Hat", price: 550, category: "accessories", image: "https://i.pinimg.com/1200x/65/a2/ad/65a2adf224bb7df204c553090ef2114c.jpg" },
+    { id: 35, name: "Hoop Earrings", price: 299, category: "accessories", image: "https://i.pinimg.com/736x/d3/ed/6c/d3ed6c0bdd7a34a7185c746b0a898344.jpg" }
 ];
 
 // --- 2. CART LOGIC ---
