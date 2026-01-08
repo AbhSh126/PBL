@@ -89,3 +89,268 @@ footer { text-align: center; padding: 20px; background: #333; color: white; marg
     .sidebar { width: 100%; }
     .hero h1 { font-size: 2.5rem; }
 }
+
+/* ============================
+   CHECKOUT PAGE STYLES (IMPROVED)
+   ============================ */
+
+.checkout-wrapper {
+    display: flex;
+    gap: 50px; /* Increased gap */
+    padding: 3rem 5% 5rem;
+    max-width: 1100px; /* Slightly narrower for better focus */
+    margin: 0 auto;
+}
+
+/* --- Left Column: Form Styling --- */
+.checkout-form {
+    flex: 3; /* Give form more space relative to summary */
+}
+
+.checkout-form h3 {
+    margin-bottom: 25px;
+    font-size: 1.4rem;
+    color: #333;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+/* Add a small pink underline to headings */
+.checkout-form h3::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 40px;
+    height: 3px;
+    background: #d63384;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #555;
+    font-size: 0.95rem;
+}
+
+/* Modern Input Styling */
+.form-group input {
+    width: 100%;
+    padding: 14px 16px; /* Larger touch targets */
+    border: 2px solid #eee;
+    border-radius: 8px; /* Softer corners */
+    background: #fcfcfc;
+    font-size: 1rem;
+    color: #333;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #d63384; /* Brand color on focus */
+    background: white;
+    box-shadow: 0 2px 8px rgba(214, 51, 132, 0.1);
+}
+
+.form-group input::placeholder {
+    color: #aaa;
+}
+
+/* Row for City/Zip and Card Details */
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+/* The main action button */
+.place-order-btn {
+    width: 100%;
+    margin-top: 30px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 16px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(214, 51, 132, 0.2);
+}
+
+.place-order-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(214, 51, 132, 0.3);
+}
+
+.place-order-btn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* --- Right Column: Order Summary Card --- */
+.checkout-summary {
+    flex: 2;
+    background: #fff;
+    padding: 35px;
+    border-radius: 16px;
+    /* A soft, elevated shadow look */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05), 0 2px 5px rgba(0,0,0,0.02);
+    height: fit-content; /* Stays compact */
+    border: 1px solid rgba(0,0,0,0.04);
+    position: sticky;
+    top: 100px; /* Sticks on scroll on large screens */
+}
+
+.checkout-summary h3 {
+    margin-bottom: 25px;
+    font-size: 1.3rem;
+    text-align: center;
+}
+
+/* Individual items in the summary list */
+.checkout-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+    font-size: 0.95rem;
+    color: #555;
+    padding-bottom: 12px;
+    border-bottom: 1px dotted #eee;
+}
+
+.checkout-item span:first-child {
+    font-weight: 500;
+    color: #333;
+}
+
+/* The divider lines */
+.checkout-summary hr {
+    border: 0;
+    height: 2px;
+    background: #eee;
+    margin: 25px 0;
+}
+
+/* Subtotal and Shipping rows */
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    font-size: 1rem;
+    color: #666;
+}
+
+/* The final total row */
+.summary-row.total {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #333;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.summary-row.total span:last-child {
+    color: #d63384; /* Pink accent for final price */
+}
+
+
+/* --- Responsive Checkout Adjustments --- */
+@media (max-width: 900px) {
+    .checkout-wrapper {
+        flex-direction: column-reverse; /* Summary moves above form on mobile */
+        gap: 30px;
+        padding: 2rem 5%;
+    }
+
+    .checkout-summary {
+        position: static; /* Don't stick on mobile */
+        padding: 25px;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr; /* Stack inputs on small screens */
+        gap: 0;
+    }
+}
+/* --- ORDER SIMULATION MODAL --- */
+.order-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7); /* Dark dimmed background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+}
+
+.order-modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    text-align: center;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    transform: scale(0.8);
+    transition: transform 0.3s ease;
+}
+
+.order-modal.active .modal-content {
+    transform: scale(1);
+}
+
+/* Spinner Animation */
+.spinner {
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #d63384; /* Pink brand color */
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 20px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Success Icon (Hidden initially) */
+.success-icon {
+    display: none;
+    font-size: 50px;
+    color: #28a745; /* Green */
+    margin-bottom: 20px;
+    animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes popIn {
+    0% { transform: scale(0); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.modal-content h2 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.modal-content p {
+    color: #666;
+    font-size: 0.9rem;
+}
